@@ -48,5 +48,5 @@ crashlytics-build.properties
 # POM target
 target/
 
-# Ignore .der keys
-*.key
+# Ignore dbs
+   *.db
