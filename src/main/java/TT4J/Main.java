@@ -1,14 +1,12 @@
-package TT4J.example;
+package TT4J;
 
+import TT4J.persistance.PersistentMap;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
 import java.io.IOException;
 import java.net.URI;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
 
 /**
  * Main class.
@@ -25,7 +23,7 @@ public class Main {
     public static HttpServer startServer() {
         // create a resource config that scans for JAX-RS resources and providers
         // in TT4J.example package
-        final ResourceConfig rc = new ResourceConfig().packages("TT4J.example");
+        final ResourceConfig rc = new ResourceConfig().packages("TT4J.resources");
 
         // create and start a new instance of grizzly http server
         // exposing the Jersey application at BASE_URI

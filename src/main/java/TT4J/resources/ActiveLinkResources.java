@@ -1,17 +1,17 @@
-package TT4J.example;
+package TT4J.resources;
+
+import TT4J.persistance.PersistentMap;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 /**
  * Root resource (exposed at "activelink" path)
  */
 @Path("activelink/")
-public class ActiveLink {
+public class ActiveLinkResources {
     /**
      * Method handling HTTP GET requests. The returned object will be sent
      * to the client as "text/plain" media type.

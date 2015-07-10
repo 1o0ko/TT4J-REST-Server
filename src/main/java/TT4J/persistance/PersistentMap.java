@@ -1,4 +1,4 @@
-package TT4J.example;
+package TT4J.persistance;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
