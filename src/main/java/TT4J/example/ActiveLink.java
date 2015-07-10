@@ -12,9 +12,6 @@ import java.util.UUID;
  */
 @Path("activelink/")
 public class ActiveLink {
-
-    private static Map<String, String> persistance = new HashMap<>();
-
     /**
      * Method handling HTTP GET requests. The returned object will be sent
      * to the client as "text/plain" media type.
@@ -24,7 +21,7 @@ public class ActiveLink {
     @GET @Path("/GET/{UUID}")
     @Produces(MediaType.TEXT_PLAIN)
     public String getUser(@PathParam("UUID") String uuid) {
-        return persistance.getOrDefault(uuid, "no such key");
+        return PersistentMap.getOrDefault(uuid, "no such key");
     }
 
 
@@ -41,8 +38,13 @@ public class ActiveLink {
     @Consumes("text/plain")
     public Response postActiveLink(String link) {
         String uuid = UUID.randomUUID().toString();
-        persistance.put(uuid, link);
+        try {
+            PersistentMap.put(uuid, link);
+            return Response.ok(uuid).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.serverError().build();
+        }
 
-        return Response.ok(uuid).build();
     }
 }
