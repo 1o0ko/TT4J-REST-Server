@@ -10,7 +10,7 @@ import java.util.UUID;
 /**
  * Root resource (exposed at "activelink" path)
  */
-@Path("activelink/")
+@Path("/")
 public class ActiveLinkResources {
     /**
      * Method handling HTTP GET requests. The returned object will be sent
@@ -18,7 +18,7 @@ public class ActiveLinkResources {
      *
      * @return String that will be returned as a text/plain response.
      */
-    @GET @Path("/GET/{UUID}")
+    @GET @Path("/{UUID}")
     @Produces(MediaType.TEXT_PLAIN)
     public String getUser(@PathParam("UUID") String uuid) {
         return PersistentMap.getOrDefault(uuid, "no such key");
@@ -34,7 +34,7 @@ public class ActiveLinkResources {
      * Example post form command line: curl -i -H"Content-Type:text/plain" -d 'link-1' http://localhost:8080/TT4J/activelink/POST/
      *
      */
-    @POST @Path("/POST")
+    @POST @Path("/add")
     @Consumes("text/plain")
     public Response postActiveLink(String link) {
         String uuid = UUID.randomUUID().toString();
