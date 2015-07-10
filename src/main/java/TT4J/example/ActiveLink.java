@@ -13,11 +13,7 @@ import java.util.UUID;
 @Path("activelink/")
 public class ActiveLink {
 
-    private Map<String, String> persistance;
-
-    public ActiveLink(){
-        this.persistance = new HashMap<>();
-    }
+    private static Map<String, String> persistance = new HashMap<>();
 
     /**
      * Method handling HTTP GET requests. The returned object will be sent
@@ -38,7 +34,7 @@ public class ActiveLink {
      *
      * @return Response with UUID
      *
-     * Example post form command line: curl -i -H"Content-Type:text/plain" POST -d 'link-1' http://localhost:8080/TT4J/activelink/POST/
+     * Example post form command line: curl -i -H"Content-Type:text/plain" -d 'link-1' http://localhost:8080/TT4J/activelink/POST/
      *
      */
     @POST @Path("/POST")
